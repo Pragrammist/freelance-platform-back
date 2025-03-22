@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\files\" />
+      <Folder Include="..\identifier.sqlite" />
     </ItemGroup>
 
 </Project>
