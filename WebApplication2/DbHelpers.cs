@@ -10,7 +10,7 @@ public static class DbHelpers
     {
         get
         {
-            var connection = new SqliteConnection(".\\identifier.sqlite");
+            var connection = new SqliteConnection("identifier.sqlite");
             connection.Open();
             return connection;
         }
