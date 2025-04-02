@@ -2,10 +2,11 @@ using System;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
+using WebApplication2;
 using static WebApplication2.DbHelpers;
 
 var builder = WebApplication.CreateBuilder(args);
-
+InitDb();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

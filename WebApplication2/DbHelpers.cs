@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using Dapper;
 using Microsoft.Data.Sqlite;
 
 namespace WebApplication2;
@@ -14,6 +15,17 @@ public static class DbHelpers
             connection.Open();
             return connection;
         }
+    }
+
+    public static void InitDb()
+    {
+        if(File.Exists("identifier.sqlite") && File.ReadAllBytes("identifier.sqlite").Length != 0)
+            return;
+        
+        var fileStream = File.Create("identifier.sqlite");
+        fileStream.Close();
+        var script = File.ReadAllText("init.sql");
+        Connection.Execute(script);
     }
     
     public static string HashPassword(string password)
